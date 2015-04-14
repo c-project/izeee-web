@@ -1,7 +1,6 @@
 'use strict';
 
 var React = require('react/addons');
-var MyComponent = require('./MyComponent');
 var ReactTransitionGroup = React.addons.TransitionGroup;
 var mui = require('material-ui');
 
@@ -16,7 +15,6 @@ var IzeeeWebApp = React.createClass({
     return (
         <div className='main'>
           <ReactTransitionGroup transitionName="fade">
-              <MyComponent/>
             <img src={imageURL} />
           </ReactTransitionGroup>
         </div>

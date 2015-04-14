@@ -33,7 +33,6 @@ module.exports = {
   },
 
   resolve: {
-    // root: [appModulesPath, nodeModulesPath, bowerComponentsPath],
     extensions: ['', '.js'],
     alias: {
       'styles': '../../../src/styles',
@@ -41,12 +40,9 @@ module.exports = {
       'stores': '../../../src/scripts/stores/',
       'actions': '../../../src/scripts/actions/',
       style: '../../styles/main.less'
-    //   Contact: '/src/scripts/components/users/Contact'
-    }
+    },
+    fallback: [ 'node_modules/material-design-icons' ]
   },
-  // resolveLoader: {
-  //   root: nodeModulesPath
-  // },
   module: {
     preLoaders: [{
       test: /\.js$/,

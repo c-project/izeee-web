@@ -7,7 +7,7 @@ var React = require('react'),
   $ = require('jquery'),
   RaisedButton = mui.RaisedButton;
 
-var ListUsers = React.createClass({
+var ContactList = React.createClass({
     getInitialState: function() {
          return {contacts: ContactStore.getState()};
      },
@@ -22,14 +22,14 @@ var ListUsers = React.createClass({
      },
     render: function() {
         return (
-            <ul>
+            <div>
                 {this.state.contacts.map(function(contact) {
-                    return <li><Contact details={contact}/></li>;
+                    return <Contact details={contact}/>;
                 })}
-            </ul>
+            </div>
         );
     }
 
 });
 
-module.exports = ListUsers;
+module.exports = ContactList;

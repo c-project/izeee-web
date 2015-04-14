@@ -2,6 +2,8 @@
 
 var IzeeeWebApp = require('./IzeeeWebApp'),
     ContactList = require('./ContactList'),
+    AppLeftNav = require('./AppLeftNav'),
+    ContactDetails = require('./ContactDetails'),
     React = require('react'),
     Router = require('react-router'),
     injectTapEventPlugin = require("react-tap-event-plugin"),
@@ -11,54 +13,43 @@ var IzeeeWebApp = require('./IzeeeWebApp'),
     RouteHandler = Router.RouteHandler,
     mui = require('material-ui'),
     AppCanvas = mui.AppCanvas,
-    AppBar = mui.AppBar,
-    LeftNav = mui.LeftNav;
+    AppBar = mui.AppBar;
+
 
 injectTapEventPlugin();
 require('style');
 
-var content = document.getElementById('content');
+var content = document.querySelector('#content');
 
 var App = React.createClass({
-  render: function () {
-    return (
-        <div>
-          <header>
-            <ul>
-              <li><Link to="app">Dashboard</Link></li>
-              <li><Link to="contacts">Contacts</Link></li>
-            </ul>
-          </header>
-
-          <RouteHandler/>
-        </div>
-    );
-  }
+    mixins: [Router.State],
+    render: function () {
+        return (
+            <AppCanvas>
+                <AppBar title="IZEEE" onMenuIconButtonTouchTap={this._onMenuIconButtonTouchTap} />
+                <AppLeftNav ref="leftNav" />
+                <RouteHandler/>
+            </AppCanvas>
+        );
+    },
+    _onMenuIconButtonTouchTap: function() {
+        this.refs.leftNav.toggle();
+    }
 });
 
 var AppRoutes = (
   <Route name="app" handler={App} path="/">
-    <Route name="contacts" handler={ContactList}/>
+    <Route name="contacts" path="/contact" handler={ContactList}/>
+    <Route name="contact-details" path="/contact/:phone" handler={ContactDetails} />
     <DefaultRoute handler={IzeeeWebApp}/>
   </Route>
 );
-
-var menuItems = [
-    {route: 'app', text:'Home'},
-    {route: 'contacts', text: 'Contacts'}
-];
 
 Router.create({
     routes: AppRoutes,
     scrollBehavior: Router.ScrollToTopBehavior
 }).run(function (Handler) {
   React.render(
-      <AppCanvas>
-          <AppBar title="IZEEE">
-
-          </AppBar>
-          <LeftNav menuItems={menuItems} docked={false}/>
-          <Handler/>
-      </AppCanvas>,
+      <Handler/>,
       content);
 });

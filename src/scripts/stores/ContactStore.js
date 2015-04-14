@@ -4,7 +4,6 @@ var AppDispatcher = require('../dispatcher/AppDispatcher');
 var AppConstants = require('../constants/AppConstants');
 var $ = require('jquery'),
     _ = require('underscore'),
-    merge = require('react/lib/merge'),
     EventEmitter = require('events').EventEmitter;
 
 var _state = null;
@@ -13,7 +12,7 @@ var CHANGE_EVENT = "change";
 var LIST_USERS_URL = "/api/user/list";
 
 
-var ContactStore = merge(EventEmitter.prototype, {
+var ContactStore = _.extend(EventEmitter.prototype, {
     _state: null,
     _initState: function(){
         Promise.resolve($.ajax({
@@ -25,7 +24,7 @@ var ContactStore = merge(EventEmitter.prototype, {
         }.bind(this));
 
     },
-    getState: function(){
+    getState: function(id){
         var result = [];
         if (_.isNull(this._state)) {
             setTimeout(function(){
