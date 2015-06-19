@@ -15,17 +15,15 @@ let Contact = React.createClass({
       return (
           <Paper zDepth={1}>
               <div className="contact-details-container">
-                    <img className="contact-details-photo" src="/images/photo.jpg"/>
+                    <img className="contact-details-photo" src={this.props.details.photo}/>
                     <h3><Link to="contact-details" params={{phone:this.props.details.phone}} className="contact-details-link">
                         {this.props.details.name}
                     </Link></h3>
-                    <p className="preferences">soccer football ice hockey</p>
+                    <p className="preferences">{this.props.details.preference}</p>
                   </div>
           </Paper>
       );
   }
 });
-                  // <div>{this.props.details.name}</div>
-                  // <div>{this.props.details.phone}</div>
 
 module.exports = Contact;

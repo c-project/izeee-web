@@ -8,8 +8,6 @@ var React = require('react'),
   FloatingActionButton = mui.FloatingActionButton,
   Paper = mui.Paper;
 
-// var img = require('material-design-icons/icons/content/svg/design/ic_add_48px.svg');
-
 var ContactList = React.createClass({
     getInitialState: function() {
          return {contacts: ContactStore.getState()};
@@ -30,7 +28,7 @@ var ContactList = React.createClass({
         return (
             <Paper style={style} zDepth={0}>
                 <FloatingActionButton className="button" iconClassName="muidocs-icon-action-add">
-                    
+
                 </FloatingActionButton>
                 <Paper zDepth={0}>
                     <h2>Contact list</h2>

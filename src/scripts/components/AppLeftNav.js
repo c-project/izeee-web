@@ -7,7 +7,8 @@ let LeftNav = mui.LeftNav;
 
 let menuItems = [
     {route: 'app', text:'Home'},
-    {route: 'contacts', text: 'Contacts'}
+    {route: 'contacts', text: 'Contacts'},
+    {route: 'events', text: 'Events'}
 ];
 
 let AppLeftNav = React.createClass({
@@ -22,7 +23,7 @@ let AppLeftNav = React.createClass({
         return (
             React.createElement(mui.LeftNav, {
                 ref: "leftNav",
-                docked: true,
+                docked: false ,
                 isInitiallyOpen: false,
                 header: header,
                 menuItems: menuItems,

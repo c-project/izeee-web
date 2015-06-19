@@ -43,9 +43,14 @@ let AppRoutes = (
   <Route name="app" handler={App} path="/">
     <Route name="contacts" path="/contact" handler={ContactList}/>
     <Route name="contact-details" path="/contact/:phone" handler={ContactDetails} />
+    <Route name="events" path="/event" handler="EventList"/>
     <DefaultRoute handler={IzeeeWebApp}/>
   </Route>
 );
+
+//up
+//<Route name="events" path="/event" handler={EventLust}/>
+//<Route name="event-details" path="/event/:title" handler={EventDetails} />
 
 Router.create({
     routes: AppRoutes,

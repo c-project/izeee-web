@@ -1,104 +1,39 @@
 [
     {
         "phone": "1234567890",
-        "contacts": [
-            {
-                "phone": "1234567890",
-                "contacts": null,
-                "preference": null,
-                "name": null
-            },
-            {
-                "phone": "1234567890",
-                "contacts": null,
-                "preference": null,
-                "name": null
-            },
-            {
-                "phone": "1234567890",
-                "contacts": null,
-                "preference": null,
-                "name": null
-            },
-            {
-                "phone": "1234567890",
-                "contacts": null,
-                "preference": null,
-                "name": null
-            }
-        ],
+        "name": "name1",
+        "photo": "/images/photo1.jpg",
         "preference": [
-            "soccer",
-            "symphonyorchestra"
-        ],
-        "name": "Sergey Budaev"
+            "preference1",
+            " preference2"
+        ]
     },
     {
         "phone": "1234567891",
-        "contacts": [
-            {
-                "phone": "1234567890",
-                "contacts": null,
-                "preference": null,
-                "name": null
-            },
-            {
-                "phone": "1234567890",
-                "contacts": null,
-                "preference": null,
-                "name": null
-            },
-            {
-                "phone": "1234567890",
-                "contacts": null,
-                "preference": null,
-                "name": null
-            },
-            {
-                "phone": "1234567890",
-                "contacts": null,
-                "preference": null,
-                "name": null
-            }
-        ],
+        "name": "name2",
+        "photo": "/images/photo2.jpg",
         "preference": [
-            "soccer",
-            "symphonyorchestra"
-        ],
-        "name": "Alexey Nikolukhin"
+            "preference1",
+            " preference3"
+        ]
     },
     {
         "phone": "1234567892",
-        "contacts": [
-            {
-                "phone": "1234567890",
-                "contacts": null,
-                "preference": null,
-                "name": null
-            },
-            {
-                "phone": "1234567891",
-                "contacts": null,
-                "preference": null,
-                "name": null
-            },
-            {
-                "phone": "1234567890",
-                "contacts": null,
-                "preference": null,
-                "name": null
-            },
-            {
-                "phone": "1234567890",
-                "contacts": null,
-                "preference": null,
-                "name": null
-            }
-        ],
+        "name": "name3",
+        "photo": "/images/photo1.jpg",
         "preference": [
-            "soccer",
-            "symphonyorchestra"
-        ],
-        "name": "Maksim Strelnikov"
+            "preference2",
+            " preference3"
+        ]
+    },
+    {
+        "phone": "1234567893",
+        "name": "name4",
+        "photo": "/images/photo1.jpg",
+        "preference": [
+            "preference1",
+            " preference2",
+            " preference3"
+        ]
     }
 ]

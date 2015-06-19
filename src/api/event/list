@@ -1,0 +1,22 @@
+[
+    {
+        "title": "event1",
+        "details": "detailsdetailsdetails1",
+    },
+    {
+        "title": "event2",
+        "details": "detailsdetailsdetails2",
+    },
+    {
+        "title": "event3",
+        "details": "detailsdetailsdetails3",
+    },
+    {
+        "title": "event4",
+        "details": "detailsdetailsdetails4",
+    },
+    {
+        "title": "event5",
+        "details": "detailsdetailsdetails5",
+    }
+]
