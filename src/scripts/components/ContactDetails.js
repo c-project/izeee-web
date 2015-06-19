@@ -1,22 +1,20 @@
 'use strict';
 
-var React = require('react'),
-  Router = require('react-router'),
-  ContactStore = require('../stores/ContactStore'),
-  Link = Router.Link,
-  mui = require('material-ui'),
+import React from 'react';
+import Router from 'react-router';
+import ContactStore from '../stores/ContactStore';
+import mui from 'material-ui';
+
+var Link = Router.Link,
   Paper = mui.Paper,
   FlatButton = mui.FlatButton,
   FontIcon = mui.FontIcon,
-  $ = require('jquery'),
   RaisedButton = mui.RaisedButton;
 
-var imageURL = require('../../images/yeoman.png');
-
-var ContactDetails = React.createClass({
+let ContactDetails = React.createClass({
     mixins:[Router.Navigation, Router.State],
     getInitialState: function() {
-         return {contacts: ContactStore.getState(this.getParams().phone)};
+         return {contact: ContactStore.getState(this.getParams().phone)};
      },
      componentDidMount: function() {
          ContactStore.addChangeListener(this._onChange);
@@ -25,18 +23,25 @@ var ContactDetails = React.createClass({
          ContactStore.removeChangeListener(this._onChange);
      },
      _onChange: function() {
-         this.setState({contacts: ContactStore.getState(this.getParams().phone)});
+         this.setState({contact: ContactStore.getState(this.getParams().phone)});
      },
     render: function() {
-      console.log(this.getParams().phone);
-      return (
+      if (!this.state.contact) {
+        return (
           <Paper zDepth={2}>
-              <p>
-                  <div>{this.getState().contact.name}</div>
-                  <div>{this.getState().contact.phone}</div>
-              </p>
+              <p>User does not exist.</p>
           </Paper>
-      );
+        );
+      } else {
+        return (
+            <Paper zDepth={2}>
+                <p>
+                    <div>{this.state.contact.name}</div>
+                    <div>{this.state.contact.phone}</div>
+                </p>
+            </Paper>
+        );
+      }
   }
 });
 

@@ -5,7 +5,10 @@ var React = require('react'),
   ContactStore = require('../stores/ContactStore'),
   mui = require('material-ui'),
   $ = require('jquery'),
-  RaisedButton = mui.RaisedButton;
+  FloatingActionButton = mui.FloatingActionButton,
+  Paper = mui.Paper;
+
+// var img = require('material-design-icons/icons/content/svg/design/ic_add_48px.svg');
 
 var ContactList = React.createClass({
     getInitialState: function() {
@@ -21,12 +24,21 @@ var ContactList = React.createClass({
          this.setState({contacts: ContactStore.getState()});
      },
     render: function() {
+        let style = {
+            margin: '1em'
+        };
         return (
-            <div>
+            <Paper style={style} zDepth={0}>
+                <FloatingActionButton className="button" iconClassName="muidocs-icon-action-add">
+                    
+                </FloatingActionButton>
+                <Paper zDepth={0}>
+                    <h2>Contact list</h2>
+                </Paper>
                 {this.state.contacts.map(function(contact) {
-                    return <Contact details={contact}/>;
+                    return <Contact details={contact} />;
                 })}
-            </div>
+            </Paper>
         );
     }
 

@@ -1,3 +1,37 @@
-.contact-detail {
-    
+@contactPhotoSize: 60px;
+
+.contact-details-container {
+
+  padding: 10px;
+  height: 80px;
+
+	.contact-details-photo {
+	    	height: @contactPhotoSize;
+	    	width: @contactPhotoSize;
+	    	border-radius: @contactPhotoSize/2;
+	    	float:left;
+	}
+
+	.contact-details-link {
+		padding-left: 10px;
+		position: relative;
+		top: -21px;
+		// float:left;
+		// font-size:2em;
+	}	
+
+	.preferences {
+		position: relative;
+  		top: -30px;
+  		left: 70px;
+	}
+}
+
+.button {
+	position: absolute;
+	top:36px;
+	right: 10px;
+}
+.muidocs-icon-action-add:before {
+	content: "\e604";
 }

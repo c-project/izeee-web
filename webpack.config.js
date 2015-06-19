@@ -44,17 +44,17 @@ module.exports = {
     fallback: [ 'node_modules/material-design-icons' ]
   },
   module: {
-    preLoaders: [{
-      test: /\.js$/,
-      exclude: /node_modules/,
-      loader: 'jsxhint'
-    }],
+    // preLoaders: [{
+    //   test: /\.js$/,
+    //   exclude: /node_modules/,
+    //   loader: 'jsxhint?babel-experimental&babel&harmony'
+    // }],
     loaders: [
-        {test: /\.js$/, exclude: /node_modules/, loader: 'react-hot!babel-loader'},
+        {test: /\.js$/, exclude: /node_modules/, loader: 'react-hot!babel-loader?optional=es7.classProperties&stage=0'},
         {test: /\.css$/, loader: 'style-loader!css-loader'},
         {test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192'},
         {test: /\.less$/, loader: "style!css!less"},
-        {test: /\.es6$/, loader: 'es6-loader'}
+        // {test: /\.es6$/, loader: 'es6-loader'}
     ]
   },
 

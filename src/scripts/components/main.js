@@ -1,17 +1,19 @@
 'use strict';
 
-var IzeeeWebApp = require('./IzeeeWebApp'),
-    ContactList = require('./ContactList'),
-    AppLeftNav = require('./AppLeftNav'),
-    ContactDetails = require('./ContactDetails'),
-    React = require('react'),
-    Router = require('react-router'),
-    injectTapEventPlugin = require("react-tap-event-plugin"),
-    Route = Router.Route,
+import IzeeeWebApp from './IzeeeWebApp';
+import ContactList from './ContactList';
+import AppLeftNav from './AppLeftNav';
+import ContactDetails from './ContactDetails';
+import React from 'react/addons';
+import Router from 'react-router';
+import injectTapEventPlugin from "react-tap-event-plugin";
+import mui from 'material-ui';
+import reactMixin from 'react-mixin';
+
+var Route = Router.Route,
     Link = Router.Link,
     DefaultRoute = Router.DefaultRoute,
     RouteHandler = Router.RouteHandler,
-    mui = require('material-ui'),
     AppCanvas = mui.AppCanvas,
     AppBar = mui.AppBar;
 
@@ -19,11 +21,11 @@ var IzeeeWebApp = require('./IzeeeWebApp'),
 injectTapEventPlugin();
 require('style');
 
-var content = document.querySelector('#content');
+const content = document.querySelector('#content');
 
-var App = React.createClass({
-    mixins: [Router.State],
-    render: function () {
+let App = React.createClass({
+  mixins:[Router.State],
+    render() {
         return (
             <AppCanvas>
                 <AppBar title="IZEEE" onMenuIconButtonTouchTap={this._onMenuIconButtonTouchTap} />
@@ -32,12 +34,12 @@ var App = React.createClass({
             </AppCanvas>
         );
     },
-    _onMenuIconButtonTouchTap: function() {
+    _onMenuIconButtonTouchTap() {
         this.refs.leftNav.toggle();
     }
 });
 
-var AppRoutes = (
+let AppRoutes = (
   <Route name="app" handler={App} path="/">
     <Route name="contacts" path="/contact" handler={ContactList}/>
     <Route name="contact-details" path="/contact/:phone" handler={ContactDetails} />

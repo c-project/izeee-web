@@ -1,56 +1,60 @@
 'use strict';
 
-var AppDispatcher = require('../dispatcher/AppDispatcher');
-var AppConstants = require('../constants/AppConstants');
-var $ = require('jquery'),
-    _ = require('underscore'),
-    EventEmitter = require('events').EventEmitter;
+import AppDispatcher from '../dispatcher/AppDispatcher';
+import AppConstants from '../constants/AppConstants';
+import $ from 'jquery';
+import _ from 'underscore';
+import Events from 'events';
 
-var _state = null;
+let _state = null;
 
-var CHANGE_EVENT = "change";
-var LIST_USERS_URL = "/api/user/list";
+const CHANGE_EVENT = "change";
+const LIST_USERS_URL = "/api/user/list";
 
 
-var ContactStore = _.extend(EventEmitter.prototype, {
+let ContactStore = _.extend(Events.EventEmitter.prototype, {
     _state: null,
-    _initState: function(){
+    _initState(){
         Promise.resolve($.ajax({
                 url: LIST_USERS_URL,
                 dataType: 'json'
-        })).then(function(contacts){
+        })).then(contacts => {
             this._state = contacts;
             this.emitChange();
-        }.bind(this));
+        });
 
     },
-    getState: function(id){
-        var result = [];
+    getState(id){
+        let result = [];
         if (_.isNull(this._state)) {
-            setTimeout(function(){
-                this._initState();
-            }.bind(this), 10);
+            setTimeout(() => this._initState(), 10);
         } else {
-            result = this._state;
+            if (id) {
+                result = _.find(this._state, contact => {
+                    return contact.phone === id;
+                });
+            } else {
+                result = this._state;
+            }
         }
         return result;
     },
-    emitChange: function() {
+    emitChange() {
         this.emit(CHANGE_EVENT);
     },
 
-    addChangeListener: function(callback) {
+    addChangeListener(callback) {
         this.on(CHANGE_EVENT, callback);
     },
 
-    removeChangeListener: function(callback) {
+    removeChangeListener(callback) {
         this.removeListener(CHANGE_EVENT, callback);
     },
 });
 
 // Register to handle all updates
-AppDispatcher.register(function(payload) {
-    var action = payload.action;
+AppDispatcher.register(payload => {
+    let action = payload.action;
 
     switch(action.actionType) {
         default: {

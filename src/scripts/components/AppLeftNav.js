@@ -1,28 +1,28 @@
 'use strict';
 
-var React = require('react'),
-    Router = require('react-router'),
-    mui = require('material-ui'),
-    LeftNav = mui.LeftNav;
+import React from 'react';
+import Router from 'react-router';
+import mui from 'material-ui';
+let LeftNav = mui.LeftNav;
 
-var menuItems = [
+let menuItems = [
     {route: 'app', text:'Home'},
     {route: 'contacts', text: 'Contacts'}
 ];
-console.log(Router.Navigation, Router.State);
-var AppLeftNav = React.createClass({
+
+let AppLeftNav = React.createClass({
     mixins: [Router.Navigation, Router.State],
-    getInitialState: function() {
+    getInitialState() {
         return {
             selectedIndex: null
         };
     },
-    render: function(){
-        var header = React.createElement("div", {className: "logo", onClick: this._onHeaderClick}, "MENU");
+    render(){
+        let header = React.createElement("div", {className: "logo", onClick: this._onHeaderClick}, "MENU");
         return (
             React.createElement(mui.LeftNav, {
                 ref: "leftNav",
-                docked: false,
+                docked: true,
                 isInitiallyOpen: false,
                 header: header,
                 menuItems: menuItems,
@@ -30,12 +30,12 @@ var AppLeftNav = React.createClass({
                 onChange: this._onLeftNavChange})
         );
     },
-    toggle: function() {
+    toggle() {
         this.refs.leftNav.toggle();
     },
-    _getSelectedIndex: function() {
-        var currentItem;
-        for (var i = menuItems.length - 1; i >= 0; i--) {
+    _getSelectedIndex() {
+        let currentItem;
+        for (let i = menuItems.length - 1; i >= 0; i--) {
             currentItem = menuItems[i];
             if (currentItem.route && this.isActive(currentItem.route)) {
                 return i;
@@ -43,11 +43,11 @@ var AppLeftNav = React.createClass({
         }
     },
 
-    _onLeftNavChange: function(e, key, payload) {
+    _onLeftNavChange(e, key, payload) {
         this.transitionTo(payload.route);
     },
 
-    _onHeaderClick: function() {
+    _onHeaderClick() {
         this.transitionTo('root');
         this.refs.leftNav.close();
     }
