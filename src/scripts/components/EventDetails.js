@@ -14,7 +14,7 @@ var Link = Router.Link,
   let EventDetails = React.createClass({
       mixins:[Router.Navigation, Router.State],
       getInitialState: function() {
-           return {event: EventStore.getState(this.getParams().title)};
+           return {event: EventStore.getState(this.getParams().id)};
        },
        componentDidMount: function() {
            EventStore.addChangeListener(this._onChange);
@@ -23,10 +23,10 @@ var Link = Router.Link,
            EventStore.removeChangeListener(this._onChange);
        },
        _onChange: function() {
-           this.setState({event: EventStore.getState(this.getParams().title)});
+           this.setState({event: EventStore.getState(this.getParams().id)});
        },
       render: function() {
-        if (!this.state.title) {
+        if (!this.state.event) {
           return (
             <Paper zDepth={2}>
                 <p>Event does not exist.</p>
@@ -37,7 +37,7 @@ var Link = Router.Link,
               <Paper zDepth={2}>
                   <p>
                       <div>{this.state.event.title}</div>
-                      <div>{this.state.event.details}</div>
+                      <div>{this.state.event.description}</div>
                   </p>
               </Paper>
           );

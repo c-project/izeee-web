@@ -10,15 +10,15 @@ var Link = Router.Link,
   FontIcon = mui.FontIcon,
   RaisedButton = mui.RaisedButton;
 
-  let Events = React.createClass({
+  let Event = React.createClass({
     render: function() {
       return (
         <Paper zDepth={1}>
           <div className="event-details-container">
-            <h3><Link to="event-details" params={{title:this.props.details.title}} className="event-details-link">
+            <h3><Link to="event-details" params={{id:this.props.details.id}} className="event-details-link">
               {this.props.details.title}
             </Link></h3>
-            <p className="event-details">{this.props.details.details}</p>
+            <p className="event-details">{this.props.details.description}</p>
           </div>
         </Paper>
       )

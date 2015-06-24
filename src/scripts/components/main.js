@@ -43,11 +43,11 @@ let App = React.createClass({
 
 let AppRoutes = (
   <Route name="app" handler={App} path="/">
-    <Route name="contacts" path="/contact" handler={ContactList}/>
-    <Route name="events" path="/event" handler={EventList}/>
-    <Route name="contact-details" path="/contact/:phone" handler={ContactDetails}/>
-    <Route name="event-details" path="/event/:title" handler={EventDetail}/>
-    <DefaultRoute handler={IzeeeWebApp}/>
+  <Route name="contacts" path="/contacts" handler={ContactList}/>
+  <Route name="contact-details" path="/contact/:phone" handler={ContactDetails}/>
+  <Route name="events" path="/events" handler={EventList}/>
+  <Route name="event-details" path="/event/:id" handler={EventDetails}/>
+  <DefaultRoute handler={IzeeeWebApp}/>
   </Route>
 );
 

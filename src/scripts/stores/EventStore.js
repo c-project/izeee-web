@@ -5,21 +5,22 @@ import AppConstants from '../constants/AppConstants';
 import $ from 'jquery';
 import _ from 'underscore';
 import Events from 'events';
+import assign from 'object-assign';
 
 let _state = null;
 
 const CHANGE_EVENT = "change";
-const LIST_USERS_URL = "/api/user/list";
+const LIST_EVENTS_URL = "/api/event/list";
 
 
-let ContactStore = _.extend(Events.EventEmitter.prototype, {
+let EventStore = assign({}, Events.EventEmitter.prototype, {
     _state: null,
     _initState(){
         Promise.resolve($.ajax({
-                url: LIST_USERS_URL,
+                url: LIST_EVENTS_URL,
                 dataType: 'json'
-        })).then(contacts => {
-            this._state = contacts;
+        })).then(events => {
+            this._state = events;
             this.emitChange();
         });
 
@@ -30,8 +31,8 @@ let ContactStore = _.extend(Events.EventEmitter.prototype, {
             setTimeout(() => this._initState(), 10);
         } else {
             if (id) {
-                result = _.find(this._state, contact => {
-                    return contact.phone === id;
+                result = _.find(this._state, event => {
+                    return event.id === id;
                 });
             } else {
                 result = this._state;
@@ -63,4 +64,4 @@ AppDispatcher.register(payload => {
     }
 });
 
-module.exports = ContactStore;
+module.exports = EventStore;

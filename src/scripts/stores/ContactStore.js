@@ -5,6 +5,7 @@ import AppConstants from '../constants/AppConstants';
 import $ from 'jquery';
 import _ from 'underscore';
 import Events from 'events';
+import assign from 'object-assign';
 
 let _state = null;
 
@@ -12,7 +13,7 @@ const CHANGE_EVENT = "change";
 const LIST_USERS_URL = "/api/user/list";
 
 
-let ContactStore = _.extend(Events.EventEmitter.prototype, {
+let ContactStore = assign({}, Events.EventEmitter.prototype, {
     _state: null,
     _initState(){
         Promise.resolve($.ajax({

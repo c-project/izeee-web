@@ -1,22 +1,27 @@
 [
     {
+        "id":1,
         "title": "event1",
-        "details": "detailsdetailsdetails1",
+        "description": "detailsdetailsdetails1"
     },
     {
+        "id":2,
         "title": "event2",
-        "details": "detailsdetailsdetails2",
+        "description": "detailsdetailsdetails2"
     },
     {
+        "id":3,
         "title": "event3",
-        "details": "detailsdetailsdetails3",
+        "description": "detailsdetailsdetails3"
     },
     {
+        "id":4,
         "title": "event4",
-        "details": "detailsdetailsdetails4",
+        "description": "detailsdetailsdetails4"
     },
     {
+        "id":5,
         "title": "event5",
-        "details": "detailsdetailsdetails5",
+        "description": "detailsdetailsdetails5"
     }
 ]

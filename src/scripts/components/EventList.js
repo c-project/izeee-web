@@ -8,7 +8,7 @@ var React = require('react'),
   FloatingActionButton = mui.FloatingActionButton,
   Paper = mui.Paper;
 
-var ContactList = React.createClass({
+var EventList = React.createClass({
     getInitialState: function() {
          return {events: EventStore.getState()};
      },
@@ -28,7 +28,6 @@ var ContactList = React.createClass({
         return (
             <Paper style={style} zDepth={0}>
                 <FloatingActionButton className="button" iconClassName="muidocs-icon-action-add">
-
                 </FloatingActionButton>
                 <Paper zDepth={0}>
                     <h2>Event list</h2>
