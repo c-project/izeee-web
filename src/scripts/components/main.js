@@ -2,8 +2,10 @@
 
 import IzeeeWebApp from './IzeeeWebApp';
 import ContactList from './ContactList';
+import EventList from './EventList';
 import AppLeftNav from './AppLeftNav';
 import ContactDetails from './ContactDetails';
+import EventDetails from './EventDetails'
 import React from 'react/addons';
 import Router from 'react-router';
 import injectTapEventPlugin from "react-tap-event-plugin";
@@ -42,15 +44,12 @@ let App = React.createClass({
 let AppRoutes = (
   <Route name="app" handler={App} path="/">
     <Route name="contacts" path="/contact" handler={ContactList}/>
-    <Route name="contact-details" path="/contact/:phone" handler={ContactDetails} />
-    <Route name="events" path="/event" handler="EventList"/>
+    <Route name="events" path="/event" handler={EventList}/>
+    <Route name="contact-details" path="/contact/:phone" handler={ContactDetails}/>
+    <Route name="event-details" path="/event/:title" handler={EventDetail}/>
     <DefaultRoute handler={IzeeeWebApp}/>
   </Route>
 );
-
-//up
-//<Route name="events" path="/event" handler={EventLust}/>
-//<Route name="event-details" path="/event/:title" handler={EventDetails} />
 
 Router.create({
     routes: AppRoutes,

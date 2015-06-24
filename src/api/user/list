@@ -20,7 +20,7 @@
     {
         "phone": "1234567892",
         "name": "name3",
-        "photo": "/images/photo1.jpg",
+        "photo": "/images/photo3.jpg",
         "preference": [
             "preference2",
             " preference3"
@@ -29,7 +29,7 @@
     {
         "phone": "1234567893",
         "name": "name4",
-        "photo": "/images/photo1.jpg",
+        "photo": "/images/photo4.jpg",
         "preference": [
             "preference1",
             " preference2",

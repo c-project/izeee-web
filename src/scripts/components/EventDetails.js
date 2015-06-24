@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Router from 'react-router';
-//import ContactStore from '../stores/ContactStore'; //?
+import EventStore from '../stores/EventStore';
 import mui from 'material-ui';
 
 var Link = Router.Link,
@@ -14,16 +14,16 @@ var Link = Router.Link,
   let EventDetails = React.createClass({
       mixins:[Router.Navigation, Router.State],
       getInitialState: function() {
-           //return {contact: ContactStore.getState(this.getParams().phone)};
+           return {event: EventStore.getState(this.getParams().title)};
        },
        componentDidMount: function() {
-           //ContactStore.addChangeListener(this._onChange);
+           EventStore.addChangeListener(this._onChange);
        },
        componentWillUnmount: function() {
-           //ContactStore.removeChangeListener(this._onChange);
+           EventStore.removeChangeListener(this._onChange);
        },
        _onChange: function() {
-           //this.setState({contact: ContactStore.getState(this.getParams().phone)});
+           this.setState({event: EventStore.getState(this.getParams().title)});
        },
       render: function() {
         if (!this.state.title) {
