@@ -32,7 +32,7 @@ let EventStore = assign({}, Events.EventEmitter.prototype, {
         } else {
             if (id) {
                 result = _.find(this._state, event => {
-                    return event.id === id;
+                    return event.id === parseInt(id, 10);
                 });
             } else {
                 result = this._state;

@@ -19,6 +19,7 @@ var Link = Router.Link,
               {this.props.details.title}
             </Link></h3>
             <p className="event-details">{this.props.details.description}</p>
+            <p><Link to="add-event" className="link-new">LINK</Link></p>
           </div>
         </Paper>
       )

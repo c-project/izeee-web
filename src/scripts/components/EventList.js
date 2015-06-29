@@ -38,7 +38,6 @@ var EventList = React.createClass({
             </Paper>
         );
     }
-
 });
 
 module.exports = EventList;
