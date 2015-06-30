@@ -18,8 +18,7 @@ var Link = Router.Link,
             <h3><Link to="event-details" params={{id:this.props.details.id}} className="event-details-link">
               {this.props.details.title}
             </Link></h3>
-            <p className="event-details">{this.props.details.description}</p>
-            <p><Link to="add-event" className="link-new">LINK</Link></p>
+            <p className="event-details">{this.props.details.tags}</p>
           </div>
         </Paper>
       )

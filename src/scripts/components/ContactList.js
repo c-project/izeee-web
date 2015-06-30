@@ -27,9 +27,6 @@ var ContactList = React.createClass({
         };
         return (
             <Paper style={style} zDepth={0}>
-                <FloatingActionButton className="button" iconClassName="muidocs-icon-action-add">
-
-                </FloatingActionButton>
                 <Paper zDepth={0}>
                     <h2>Contact list</h2>
                 </Paper>

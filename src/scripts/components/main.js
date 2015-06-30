@@ -14,12 +14,12 @@ import EventDetails from './EventDetails';
 import AddEvent from './AddEvent';
 
 var Route = Router.Route,
-    Link = Router.Link,
     DefaultRoute = Router.DefaultRoute,
     RouteHandler = Router.RouteHandler,
+    Link = Router.Link,
+    ThemeManager = new mui.Styles.ThemeManager(),
     AppCanvas = mui.AppCanvas,
     AppBar = mui.AppBar;
-
 
 injectTapEventPlugin();
 require('style');
@@ -31,11 +31,23 @@ let App = React.createClass({
     render() {
         return (
             <AppCanvas>
-                <AppBar title="IZEEE" onMenuIconButtonTouchTap={this._onMenuIconButtonTouchTap} />
+                <AppBar title="IZEEE" onLeftIconButtonTouchTap={this._onMenuIconButtonTouchTap} />
                 <AppLeftNav ref="leftNav" />
-                <RouteHandler/>
+                <div style={{position:"relative", paddingTop:"64px"}}>
+                <RouteHandler />
+                </div>
             </AppCanvas>
         );
+    },
+    // Important!
+    childContextTypes: {
+      muiTheme: React.PropTypes.object
+    },
+    // Important!
+    getChildContext() {
+      return {
+        muiTheme: ThemeManager.getCurrentTheme()
+      };
     },
     _onMenuIconButtonTouchTap() {
         this.refs.leftNav.toggle();
@@ -59,5 +71,5 @@ Router.create({
 }).run(function (Handler) {
   React.render(
       <Handler/>,
-      content);
+      document.body);
 });

@@ -36,25 +36,23 @@ var Link = Router.Link,
         if (!this.state.event) {
           return (
             <Paper zDepth={2}>
-                <p>Event does not exist.</p>
+                <p>Событие не существует</p>
             </Paper>
           );
         } else {
           return (
               <Paper zDepth={2}>
                       <Card>
-                        <CardHeader title={this.state.event.title} subtitle={this.state.event.description} avatar={<Avatar>a</Avatar>}/>
+                        <CardHeader title={this.state.event.title} subtitle={this.state.event.tags} avatar={<Avatar>{this.state.event.image}</Avatar>}/>
                         <CardMedia>
-                          <img src="http://lorempixel.com/600/337/nature/"/>
+                          <img src="http://lorempixel.com/500/500/nature/"/>
                         </CardMedia>
                          <CardTitle title={this.state.event.title} subtitle={this.state.event.description}/>
                          <CardActions>
-                          <FlatButton label="Action1"/>
-                          <FlatButton label="Action2"/>
+                          <FlatButton label="Пойду"/>
+                          <FlatButton label="Возможно пойду"/>
+                          <FlatButton label="Не пойду"/>
                          </CardActions>
-                         <CardText>
-                          {this.state.event.description}
-                         </CardText>
                       </Card>
               </Paper>
           );

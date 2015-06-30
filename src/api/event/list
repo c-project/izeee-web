@@ -1,27 +1,53 @@
 [
     {
         "id":1,
-        "title": "event1",
-        "description": "detailsdetailsdetails1"
+        "title": "Жигулевская палитра",
+        "description": "XX Всероссийский (с международным участием) конкурс молодых дарований по изобразительному искусству, посвященный 70-летию Победы в Великой Отечественной войне.",
+        "image": "V",
+        "tags": [
+            "#конкурс",
+            " #искусство"
+        ]
     },
     {
         "id":2,
         "title": "event2",
-        "description": "detailsdetailsdetails2"
-    },
+        "description": "eventdetails2",
+        "image": "S",
+        "tags": [
+            "#tag2",
+            " #tag3"
+        ]
+          },
     {
         "id":3,
         "title": "event3",
-        "description": "detailsdetailsdetails3"
-    },
+        "description": "eventdetails3",
+        "image": "F",
+        "tags": [
+            "#tag3",
+            " #tag1"
+        ]
+          },
     {
         "id":4,
         "title": "event4",
-        "description": "detailsdetailsdetails4"
-    },
+        "description": "eventdetails4",
+        "image": "G",
+        "tags": [
+            "#tag1",
+            " #tag2",
+            " #tag3"
+        ]
+          },
     {
         "id":5,
         "title": "event5",
-        "description": "detailsdetailsdetails5"
-    }
+        "description": "eventdetails5",
+        "image": "F",
+        "tags": [
+            "#tag1",
+            " #tag3"
+        ]
+          }
 ]
