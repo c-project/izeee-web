@@ -26,6 +26,8 @@ var ContactList = React.createClass({
             margin: '1em'
         };
         return (
+          <div>
+          <FloatingActionButton iconClassName="muidocs-icon-action-grade"/>
             <Paper style={style} zDepth={0}>
                 <Paper zDepth={0}>
                     <h2>Contact list</h2>
@@ -34,6 +36,7 @@ var ContactList = React.createClass({
                     return <Contact details={contact} />;
                 })}
             </Paper>
+          </div>
         );
     }
 

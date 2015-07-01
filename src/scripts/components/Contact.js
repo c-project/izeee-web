@@ -8,15 +8,15 @@ var Link = Router.Link,
   Paper = mui.Paper,
   FlatButton = mui.FlatButton,
   FontIcon = mui.FontIcon,
-  Avatar = mui.Avatar,
-  RaisedButton = mui.RaisedButton;
+  RaisedButton = mui.RaisedButton,
+  Avatar = mui.Avatar;
 
 let Contact = React.createClass({
   render: function() {
       return (
           <Paper zDepth={1}>
-              <div>
-                    <Avatar src={this.props.details.photo}/>
+              <div className="contact-details-container">
+                    <Avatar className="contact-details-photo" src={this.props.details.photo}/>
                     <h3><Link to="contact-details" params={{phone:this.props.details.phone}} className="contact-details-link">
                         {this.props.details.name}
                     </Link></h3>
