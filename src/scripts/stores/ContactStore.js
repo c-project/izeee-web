@@ -54,10 +54,8 @@ let ContactStore = assign({}, Events.EventEmitter.prototype, {
 });
 
 // Register to handle all updates
-AppDispatcher.register(payload => {
-    let action = payload.action;
-
-    switch(action.actionType) {
+AppDispatcher.register(action => {
+    switch(action.type) {
         default: {
             return true;
             }

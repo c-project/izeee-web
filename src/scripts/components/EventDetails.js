@@ -48,6 +48,8 @@ var Link = Router.Link,
                           <img src="http://lorempixel.com/500/500/nature/"/>
                         </CardMedia>
                          <CardTitle title={this.state.event.title} subtitle={this.state.event.description}/>
+                         <CardText>{this.state.event.dislocation} @ {this.state.event.date} - {this.state.event.time}</CardText>
+                         <CardText>Type event: {this.state.event.type}</CardText>
                          <CardActions>
                           <FlatButton label="Пойду"/>
                           <FlatButton label="Возможно пойду"/>
