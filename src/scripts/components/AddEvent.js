@@ -13,6 +13,10 @@ var Link = Router.Link,
   Toggle = mui.Toggle,
   FlatButton = mui.FlatButton;
 
+var toggle = false,
+typeEvent = "Open"
+//?
+
 var style = {
   fileInput: {
     position:"absolute",
@@ -31,12 +35,18 @@ var  AddEvent = React.createClass  ({
       description: this.refs.description.getValue(),
       tags: this.refs.tags.getValue(),
       dislocation: this.refs.dislocation.getValue(),
-
-
+      type: typeEvent,
     };
     EventAction.createEvent(event);
   },
-
+    _toggle: function() {
+      toggle = !toggle;
+      if (toggle) {
+        typeEvent = "Close"
+      } else {
+        typeEvent = "Open"
+      }
+    },
     render() {
       return (
         <div style={{width: 300}}>
@@ -48,7 +58,7 @@ var  AddEvent = React.createClass  ({
           <TextField ref="dislocation" hintText="Enter dislocation event" floatingLabelText="Enter dislocation event"/>
           <DatePicker hintText="Enter date event" showYearSelector="true"/>
           <TimePicker format="24hr" hintText="Enter time event"/>
-          <Toggle label="Type event: Open\Private"/>
+          <Toggle label="Type event: Open\Private" onClick={this._toggle}/>
           <FlatButton primary={true} label="Choose image">
             <input style={style.fileInput} type="file"/>
           </FlatButton>
