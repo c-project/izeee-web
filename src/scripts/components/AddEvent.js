@@ -24,28 +24,12 @@ var style = {
 }
 
 var  AddEvent = React.createClass  ({
-  REQUIRE_FIELD_TEXT: "Field can't be empty",
-  getInitialState() {
-    return {
-        title:this.props.event.title,
-        titleErrorText:this.REQUIRE_FIELD_TEXT
-      }
-  },
-  _onTitleChange(e) {
-    let newValue = this.refs.title.getValue();
-    this.setState({title:newValue});
-    if (!newValue) {
-      this.setState({titleErrorText:this.REQUIRE_FIELD_TEXT});
-    } else {
-      this.setState({titleErrorText:null});
-    }
-  },
     render: function () {
       return (
         <div style={{width: 300}}>
         <Paper zDepth={0}>
         <h2>Create event</h2>
-          <TextField ref="title" hintText="Enter title event" floatingLabelText="Enter title event" errorText={this.state.titleErrorText} onChange={this._onTitleChange}/>
+          <TextField ref="title" hintText="Enter title event" floatingLabelText="Enter title event"/>
 
           <TextField multiLine={true} hintText="Enter description event" floatingLabelText="Enter description event"/>
           <Toggle label="Type event: Open\Private"/>

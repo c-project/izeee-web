@@ -25,9 +25,13 @@ var EventList = React.createClass({
         let style = {
             margin: '1em'
         };
+        let sb = {
+          position: 'absolute',
+          right: '25px',
+          bottom: '-100px',
+        };
         return (
           <div>
-          <FloatingActionButton iconClassName="muidocs-icon-action-grade"/>
             <Paper style={style} zDepth={0}>
                 <Paper zDepth={0}>
                     <h2>Event list</h2>
@@ -36,6 +40,7 @@ var EventList = React.createClass({
                     return <Event details={event} />;
                 })}
             </Paper>
+            <FloatingActionButton style={sb} iconClassName="muidocs-icon-action-add"/>
             </div>
         );
     }
