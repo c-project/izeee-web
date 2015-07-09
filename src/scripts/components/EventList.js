@@ -32,6 +32,10 @@ var EventList = React.createClass({
         };
         return (
           <div>
+<<<<<<< HEAD
+=======
+          <FloatingActionButton/>
+>>>>>>> 96c0a74def821a521eb4ae702612876c64574223
             <Paper style={style} zDepth={0}>
                 <Paper zDepth={0}>
                     <h2>Event list</h2>
