@@ -4,6 +4,7 @@ import React from 'react';
 import Router from 'react-router';
 import EventStore from '../stores/EventStore';
 import mui from 'material-ui';
+import moment from "moment";
 
 var Link = Router.Link,
   Paper = mui.Paper,
@@ -40,6 +41,8 @@ var Link = Router.Link,
             </Paper>
           );
         } else {
+          var date = moment(this.state.event.date, "MM/DD/YYYY").format("DD.MM.YYYY");
+          var time = moment.utc(this.state.event.time, "HH:mm").format("HH:mm");
           return (
               <Paper zDepth={2}>
                       <Card>
@@ -48,8 +51,8 @@ var Link = Router.Link,
                           <img src="http://lorempixel.com/500/500/nature/"/>
                         </CardMedia>
                          <CardTitle title={this.state.event.title} subtitle={this.state.event.description}/>
-                         <CardText>{this.state.event.dislocation} @ {this.state.event.date} - {this.state.event.time}</CardText>
-                         <CardText>Type event: {this.state.event.type}</CardText>
+                         <CardText>{this.state.event.location} @ {date} - {time}</CardText>
+                         <CardText>{this.state.event.public ? "Pulbic" : "Private"}</CardText>
                          <CardActions>
                           <FlatButton label="Пойду"/>
                           <FlatButton label="Возможно пойду"/>

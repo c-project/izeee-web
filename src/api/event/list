@@ -3,50 +3,50 @@
         "id":1,
         "title": "Жигулевская палитра",
         "description": "XX Всероссийский (с международным участием) конкурс молодых дарований по изобразительному искусству, посвященный 70-летию Победы в Великой Отечественной войне.",
-        "dislocation": "Советская ул., 80",
-        "date": "20.08.2015",
+        "location": "Советская ул., 80",
+        "date": "08/15/2015",
         "time": "18:20",
         "image": "V",
         "tags": [
             "#конкурс",
             " #искусство"
         ],
-        "type": "Open"
+        "public": true
     },
     {
         "id":2,
         "title": "event2",
         "description": "eventdetails2",
-        "dislocation": "Советская ул., 80",
-        "date": "20.08.2015",
+        "location": "Советская ул., 80",
+        "date": "08/15/2015",
         "time": "18:20",
         "image": "S",
         "tags": [
             "#tag2",
             " #tag3"
         ],
-        "type": "Open"
+        "public": true
           },
     {
         "id":3,
         "title": "event3",
         "description": "eventdetails3",
-        "dislocation": "Советская ул., 80",
-        "date": "20.08.2015",
+        "location": "Советская ул., 80",
+        "date": "08/15/2015",
         "time": "18:20",
         "image": "F",
         "tags": [
             "#tag3",
             " #tag1"
         ],
-        "type": "Open"
+        "public": false
           },
     {
         "id":4,
         "title": "event4",
         "description": "eventdetails4",
-        "dislocation": "Советская ул., 80",
-        "date": "20.08.2015",
+        "location": "Советская ул., 80",
+        "date": "08/15/2015",
         "time": "18:20",
         "image": "G",
         "tags": [
@@ -54,20 +54,20 @@
             " #tag2",
             " #tag3"
         ],
-        "type": "Open"
+        "public": true
           },
     {
         "id":5,
         "title": "event5",
         "description": "eventdetails5",
-        "dislocation": "Советская ул., 80",
-        "date": "20.08.2015",
+        "location": "Советская ул., 80",
+        "date": "08/15/2015",
         "time": "18:20",
         "image": "F",
         "tags": [
             "#tag1",
             " #tag3"
         ],
-        "type": "Open"
+        "public": false
           }
 ]
