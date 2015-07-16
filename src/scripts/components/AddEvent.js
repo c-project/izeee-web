@@ -5,6 +5,7 @@ import Router from 'react-router';
 import mui from 'material-ui';
 import EventAction from '../actions/EventAction.js';
 import moment from 'moment';
+import DateTimeConstants from '../constants/DateTimeConstants';
 
 var Link = Router.Link,
   Paper = mui.Paper,
@@ -25,61 +26,34 @@ var style = {
   }
 }
 
-var errorText = "Обязательно для заполнения!";
-
 var  AddEvent = React.createClass  ({
   createEvent(e) {
-    console.log(this.refs.time.getTime());
-//    if (!this._validateInput()) {
-//      return;
-//    }
+    var eventDate = moment(this.refs.date.getDate()).format(DateTimeConstants.DATE_ONLY); //'MM/DD/YYYY'
+    var eventTime = moment(this.refs.time.getTime()).format(DateTimeConstants.TIME_ONLY); //'HH:mm'
+    var datetime = moment(eventDate + " " + eventTime).utc().format(DateTimeConstants.DATE_TIME); //'MM/DD/YYYY HH:mm'
     var event = {
       title: this.refs.title.getValue(),
       description: this.refs.description.getValue(),
       tags: this.refs.tags.getValue(),
       location: this.refs.location.getValue(),
-      date: moment(this.refs.date.getDate()).utc().format('MM/DD/YYYY'),
-      time: moment(this.refs.time.getTime()).utc().format('HH:mm'),
+      datetime : datetime,
       public: !this.refs.eventType.isToggled(),
       //image
     };
     EventAction.createEvent(event);
+    console.log(datetime);
   },
-  _formatDate(date) {
-    return moment(date).format("DD.MM.YYYY");
-  },
-//  _validateForm() {
-//    var isValid = false;
-//    isValid = this.validateTextField(this.refs.title);
-//    return isValid;
-//  },
-//  _validateTextField(field) {
-//    console.log(field);
-//    if (field.target) {
-//      field = field.target;
-//    }
-//     console.log();
-//    var isValid = false;
-//    if (field.getValue() != "") {
-//      field.setErrorText("")
-//      // errorText = "не пустая";
-//      isValid = true;
-//   } else {
-//      field.setErrorText("пустая")
-//    }
-//    return isValid;
-//  },
     render() {
       return (
         <div style={{width: 300}}>
         <Paper zDepth={0}>
         <h2>Create event</h2>
-          <TextField ref="title" hintText="Enter title event" floatingLabelText="Enter title event" onChange={this._validateTextField}/>
+          <TextField ref="title" hintText="Enter title event" floatingLabelText="Enter title event"/>
           <TextField ref="description" hintText="Enter description event" floatingLabelText="Enter description event" multiLine={true}/>
           <TextField ref="tags" hintText="Enter tags event" floatingLabelText="Enter tags event"/>
           <TextField ref="location" hintText="Enter location event" floatingLabelText="Enter location event"/>
-          <DatePicker ref="date" hintText="Enter date event" showYearSelector="true" formatDate={this._formatDate}/>
-          <TimePicker ref="time" hintText="Enter time event" format="24hr"/>
+          <DatePicker ref="date" hintText="Enter date event" floatingLabelText="Enter date event" showYearSelector="true"/>
+          <TimePicker ref="time" hintText="Enter time event" floatingLabelText="Enter time event" format="24hr"/>
           <Toggle ref="eventType" label="Private event"/>
           <FlatButton primary={true} label="Choose image">
             <input style={style.fileInput} type="file"/>
@@ -93,6 +67,10 @@ var  AddEvent = React.createClass  ({
 
   module.exports = AddEvent;
 
-//добавить плюшечки в TextField
+//defaultDate now
+//formatDate DD.MM.YYYY
 //minDate now
 //defaultTime now
+//TextField errorText
+  //TextField onChange - errorText off
+//добавить друге плюшечки в TextField...

@@ -37,12 +37,12 @@ var Link = Router.Link,
         if (!this.state.event) {
           return (
             <Paper zDepth={2}>
-                <p>Событие не существует</p>
+                <p>The event does not exist</p>
             </Paper>
           );
         } else {
-          var date = moment(this.state.event.date, "MM/DD/YYYY").format("DD.MM.YYYY");
-          var time = moment.utc(this.state.event.time, "HH:mm").format("HH:mm");
+            var datetime = moment.utc(this.state.event.datetime).local().format('DD.MM.YYYY HH:mm');
+          console.log(datetime);
           return (
               <Paper zDepth={2}>
                       <Card>
@@ -51,12 +51,12 @@ var Link = Router.Link,
                           <img src="http://lorempixel.com/500/500/nature/"/>
                         </CardMedia>
                          <CardTitle title={this.state.event.title} subtitle={this.state.event.description}/>
-                         <CardText>{this.state.event.location} @ {date} - {time}</CardText>
+                         <CardText>{this.state.event.location} @ {datetime}</CardText>
                          <CardText>{this.state.event.public ? "Pulbic" : "Private"}</CardText>
                          <CardActions>
-                          <FlatButton label="Пойду"/>
-                          <FlatButton label="Возможно пойду"/>
-                          <FlatButton label="Не пойду"/>
+                          <FlatButton label="Go"/>
+                          <FlatButton label="Maybe"/>
+                          <FlatButton label="Not go"/>
                          </CardActions>
                       </Card>
               </Paper>
