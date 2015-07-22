@@ -5,6 +5,8 @@ import Router from 'react-router';
 import EventStore from '../stores/EventStore';
 import mui from 'material-ui';
 import moment from "moment";
+import DateTimeConstants from '../constants/DateTimeConstants';
+
 
 var Link = Router.Link,
   Paper = mui.Paper,
@@ -41,7 +43,8 @@ var Link = Router.Link,
             </Paper>
           );
         } else {
-            var datetime = moment.utc(this.state.event.datetime).local().format('DD.MM.YYYY HH:mm');
+            var datetime = moment.utc(this.state.event.datetime).local().format(DateTimeConstants.DATE_TIME
+            );
           console.log(datetime);
           return (
               <Paper zDepth={2}>

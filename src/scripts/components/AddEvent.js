@@ -28,9 +28,9 @@ var style = {
 
 var  AddEvent = React.createClass  ({
   createEvent(e) {
-    var eventDate = moment(this.refs.date.getDate()).format(DateTimeConstants.DATE_ONLY); //'MM/DD/YYYY'
-    var eventTime = moment(this.refs.time.getTime()).format(DateTimeConstants.TIME_ONLY); //'HH:mm'
-    var datetime = moment(eventDate + " " + eventTime).utc().format(DateTimeConstants.DATE_TIME); //'MM/DD/YYYY HH:mm'
+    var eventDate = moment(this.refs.date.getDate()).format(DateTimeConstants.DATE_ONLY);
+    var eventTime = moment(this.refs.time.getTime()).format(DateTimeConstants.TIME_ONLY);
+    var datetime = moment(eventDate + " " + eventTime).utc().format(DateTimeConstants.DATE_TIME);
     var event = {
       title: this.refs.title.getValue(),
       description: this.refs.description.getValue(),
@@ -41,7 +41,6 @@ var  AddEvent = React.createClass  ({
       //image
     };
     EventAction.createEvent(event);
-    console.log(datetime);
   },
     render() {
       return (
