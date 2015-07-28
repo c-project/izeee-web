@@ -3,12 +3,12 @@
 import React from 'react/addons';
 import mui from 'material-ui';
 
-var CircularProgress = mui.CircularProgress;
+var Avatar = mui.Avatar;
 
 var IzeeeWebApp = React.createClass({
   render() {
     return (
-      <CircularProgress mode="indeterminate" size={2} />
+      <Avatar/>
     );
   }
 });
