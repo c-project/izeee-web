@@ -1,12 +1,21 @@
 'use strict';
 
-var React = require('react'),
-  Contact = require('./Contact'),
-  ContactStore = require('../stores/ContactStore'),
-  mui = require('material-ui'),
-  $ = require('jquery'),
-  FloatingActionButton = mui.FloatingActionButton,
-  Paper = mui.Paper;
+import React from 'react';
+import Router from 'react-router';
+import mui from 'material-ui';
+import Contact from './Contact';
+import ContactStore from '../stores/ContactStore';
+import $ from 'jquery';
+
+var Link = Router.Link,
+    Paper = mui.Paper,
+    FloatingActionButton = mui.FloatingActionButton;
+
+var style = {
+  button: {
+    position: 'fixed', right: '10px', bottom: '10px'
+  }
+}
 
 var ContactList = React.createClass({
     getInitialState: function() {
@@ -21,25 +30,22 @@ var ContactList = React.createClass({
      _onChange: function() {
          this.setState({contacts: ContactStore.getState()});
      },
-    render: function() {
-        let style = {
-            margin: '1em'
-        };
+     _onClick() {
+       console.log(1);
+     },
+     render: function() {
         return (
-          <div>
-          <FloatingActionButton/>
-            <Paper style={style} zDepth={0}>
-                <Paper zDepth={0}>
-                    <h2>Contact list</h2>
-                </Paper>
-                {this.state.contacts.map(function(contact) {
-                    return <Contact details={contact} />;
-                })}
+            <Paper style={{margin: '1em'}} zDepth={0}>
+              <Paper zDepth={0}>
+                <h2>Contact list</h2>
+              </Paper>
+              {this.state.contacts.map(function(contact) {
+                return <Contact details={contact} />;
+              })}
+              <FloatingActionButton style={style.button} onClick={this._onClick}/>
             </Paper>
-          </div>
         );
-    }
-
+     }
 });
 
 module.exports = ContactList;

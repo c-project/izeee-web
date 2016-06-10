@@ -12,6 +12,8 @@ import EventList from './EventList';
 import ContactDetails from './ContactDetails';
 import EventDetails from './EventDetails';
 import AddEvent from './AddEvent';
+import SignUp from './SignUp';
+import AddContact from './AddContact';
 
 var Route = Router.Route,
     DefaultRoute = Router.DefaultRoute,
@@ -61,6 +63,8 @@ let AppRoutes = (
   <Route name="events" path="/events" handler={EventList}/>
   <Route name="event-details" path="/event/:id" handler={EventDetails}/>
   <Route name="add-event" path="/new" handler={AddEvent}/>
+  <Route name="sign-up" path="/signup" handler={SignUp}/>
+  <Route name="add-contact" path="/addcontact" handler={AddContact}/>
   <DefaultRoute handler={IzeeeWebApp}/>
   </Route>
 );

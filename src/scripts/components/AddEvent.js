@@ -14,7 +14,6 @@ var Link = Router.Link,
   TimePicker = mui.TimePicker,
   Toggle = mui.Toggle,
   FlatButton = mui.FlatButton,
-
   Table = mui.Table;
 
 var style = {
@@ -27,46 +26,6 @@ var style = {
     opacity:0
   }
 }
-
-// NEW
-let headerCols = {
-  id: {
-    content: 'ID',
-    tooltip: 'The ID'
-  },
-  name: {
-    content: 'Name',
-    tooltip: 'The Name'
-  },
-  phone: {
-    content: 'Phone',
-    tooltip: 'The Phone'
-  }
-};
-let footerCols = {
-  id: {content: 'ID'},
-  name: {content: 'Name'},
-  phone: {content: 'Phone'}
-  };
-let colOrder = ['id', 'name', 'phone'];
-let rowData = [
-  {selected: true, id: {content: '1'}, name: {content: 'name1'}, phone: {content: '+012345'}},
-  {id: {content: '2'}, name: {content: 'name2'}, phone: {content: '+012345'}},
-  {id: {content: '3'}, name: {content: 'name3'}, phone: {content: '+012345'}},
-  {id: {content: '4'}, name: {content: 'name4'}, phone: {content: '+012345'}},
-  {id: {content: '5'}, name: {content: 'name5'}, phone: {content: '+012345'}},
-  {id: {content: '6'}, name: {content: 'name6'}, phone: {content: '+012345'}},
-  {id: {content: '7'}, name: {content: 'name7'}, phone: {content: '+012345'}},
-  {id: {content: '8'}, name: {content: 'name8'}, phone: {content: '+012345'}},
-  {id: {content: '9'}, name: {content: 'name9'}, phone: {content: '+012345'}},
-  {id: {content: '10'}, name: {content: 'name10'}, phone: {content: '+012345'}},
-  {id: {content: '11'}, name: {content: 'name11'}, phone: {content: '+012345'}},
-  {id: {content: '12'}, name: {content: 'name12'}, phone: {content: '+012345'}},
-  {id: {content: '13'}, name: {content: 'name13'}, phone: {content: '+012345'}},
-  {id: {content: '14'}, name: {content: 'name14'}, phone: {content: '+012345'}},
-  {id: {content: '15'}, name: {content: 'name15'}, phone: {content: '+012345'}}
-];
-// NEW
 
 var  AddEvent = React.createClass  ({
   createEvent(e) {
@@ -100,11 +59,6 @@ var  AddEvent = React.createClass  ({
             <input style={style.fileInput} type="file"/>
           </FlatButton>
           <FlatButton label="Create event" onClick={this.createEvent}/>
-        </Paper>
-        <Paper zDepth={0}>
-        <Table headerColumns={headerCols} footerColumns={footerCols} columnOrder={colOrder} rowData={rowData}
-        height="300px" fixedHeader="true" fixedFooter="true" stripedRows="false" showRowHover="false"
-        selectable="true" multiSelectable="false" canSelectAll="false" deselectOnClickaway="true" ref="table"/>
         </Paper>
         </div>
       );
